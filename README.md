@@ -28,7 +28,7 @@ Combining search and filter logic
 UI structure and state management
 📷 Screenshots
 
-(Add screenshot here later)
+(![App Screenshot](public/screenshots/screenshot.png)r)
 
 ⚙️ Setup (Local)
 npm install
