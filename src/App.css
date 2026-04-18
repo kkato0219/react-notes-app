@@ -1,38 +1,121 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111827;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .container {
-  max-width: 600px;
-  margin: auto;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .form input,
 .form textarea,
 .form select,
-button {
-  width: 100%;
-  margin-bottom: 10px;
+.form button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+}
+
+.form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form button {
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.controls input,
+.controls select {
   padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+.controls input {
+  flex: 1;
+}
+
+.notes-list {
+  display: grid;
+  gap: 16px;
 }
 
 .note-card {
-  background: #1f1f1f;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 15px;
+  background-color: #1f2937;
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.note-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.note-card p {
+  margin-bottom: 10px;
+  line-height: 1.5;
 }
 
 .category {
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 4px;
   font-size: 12px;
-  background: #333;
-  padding: 4px 8px;
-  border-radius: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #374151;
 }
 
 .actions {
-  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .action button {
-  margin-right: 10px;
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
+
+.actions button:first-child {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.actions button:last-child {
+  background-color: #dc2626;
+  color: white;
+}
+

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+import NoteForm from "./components/NoteForm";
+import NoteList from "./components/NoteList";
+import NoteControls from "./components/NoteControls";
+
 function App() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -82,70 +86,29 @@ function App() {
     <div className="container">
       <h1>Notes App</h1>
 
-      <div className="form">
-        <input 
-          type="text" 
-          placeholder="Title" 
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-
-        <textarea 
-          placeholder="Write your note..."
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        ></textarea>
-
-
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option>Work</option>
-          <option>Personal</option>
-          <option>Study</option>
-        </select>
-
-        <button onClick={handleAddNote}>
-          {editingId ? "Update Note" : "Add Note"}
-        </button>
-      </div>
-
-      <input 
-        type="text"
-        placeholder="Search notes..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+      <NoteForm
+        title={title}
+        setTitle={setTitle}
+        content={content}
+        setContent={setContent}
+        category={category}
+        setCategory={setCategory}
+        handleAddNote={handleAddNote}
+        editingId={editingId}
       />
 
-      <select
-        value={filterCategory}
-        onChange={(e) => setFilterCategory(e.target.value)}
-      >
-        <option value="All">All</option>
-        <option value="Work">Work</option>
-        <option value="Personal">Personal</option>
-        <option value="Study">Study</option>
-      </select>
+      <NoteControls
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterCategory={filterCategory}
+        setFilterCategory={setFilterCategory}
+      />
 
-      <div className="note-list">
-        {filteredNotes.length === 0 ? (
-          <p>No notes yet. Try adding one ✍️</p>
-        ) : (
-          filteredNotes.map((note) => (
-            <div key={note.id} className="note-card">
-              <h3>{note.title}</h3>
-              <p>{note.content}</p>
-              <span className="category">{note.category}</span>
-
-              <div>
-                <button onClick={() => handleEdit(note)}>Edit</button>
-                <button onClick={() => handleDelete(note.id)}>Delete</button>
-              </div>
-            </div>
-          ))
-        )}
-      </div>
+      <NoteList
+        filteredNotes={filteredNotes}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
     </div>
   );
 }
